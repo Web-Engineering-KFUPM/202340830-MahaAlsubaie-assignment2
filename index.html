@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maha Alsubaie — Portfolio</title>
+  <meta name="description" content="Maha Alsubaie — Software Engineering student portfolio: projects, skills, and contact." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAVIGATION ===================== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#hero" class="logo">Maha<span class="logo-dot">.</span></a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark and light mode">
+        <span id="theme-icon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== HERO SECTION ===================== -->
+    <section id="hero" class="hero">
+      <div class="container hero-content">
+        <p class="section-label">— welcome to my folder —</p>
+        <h1 class="hero-title">Ideas, projects, and progress tucked inside my folder.</h1>
+        <p class="hero-intro">
+          Hi, I'm <strong>Maha Alsubaie</strong>, a Software Engineering student interested in UI/UX
+          and creative digital experiences. 
+          Here are a few things I’ve been making, learning, and improving.
+        </p>
+        <a href="#projects" class="btn btn-primary">Explore My Work</a>
+      </div>
+
+      <!-- decorative folder tabs -->
+      <div class="hero-folders" aria-hidden="true">
+        <span class="folder-shape folder-pink"></span>
+        <span class="folder-shape folder-yellow"></span>
+        <span class="folder-shape folder-blue"></span>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT SECTION ===================== -->
+    <section id="about" class="about section">
+      <div class="container">
+        <p class="section-label">— about me —</p>
+        <h2 class="section-title">A little about me</h2>
+
+        <p class="about-text">
+          I'm a curious, creative problem-solver who believes the best code is written with
+          purpose, not just to make things work. I learn best by doing — building projects,
+          breaking them, and figuring out how to make them better. Along the way, I've come
+          to value collaboration as much as individual craft, and I try to treat every project
+          as a chance to keep growing.
+        </p>
+
+        <div class="skills-card">
+          <p class="section-label small">— skills —</p>
+          <ul class="skills-list">
+            <li class="skill-pill pill-pink">HTML and CSS</li>
+            <li class="skill-pill pill-green">JavaScript</li>
+            <li class="skill-pill pill-yellow">Responsive Design</li>
+            <li class="skill-pill pill-blue">Object-Oriented Programming</li>
+            <li class="skill-pill pill-pink">Figma</li>
+            <li class="skill-pill pill-green">WordPress</li>
+            <li class="skill-pill pill-yellow">SoftWare Design</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS SECTION ===================== -->
+    <section id="projects" class="projects section">
+      <div class="container">
+        <p class="section-label">— my work —</p>
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects-grid">
+
+          <!-- Project 1: Seraj -->
+          <a class="folder-card card-purple" href="projects/seraj.html">
+            <span class="folder-tab"></span>
+            <div class="card-image-wrap">
+              <img src="assets/images/seraj.jpg" alt="Seraj project preview" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Seraj</h3>
+              <p class="card-desc">
+                An augmented reality cultural exploration platform that helps users
+                discover Saudi heritage through interactive experiences.
+              </p>
+              <span class="card-link">View project →</span>
+            </div>
+          </a>
+
+          <!-- Project 2: GSR Hackathon -->
+          <a class="folder-card card-orange" href="projects/gsr-hackathon.html">
+            <span class="folder-tab"></span>
+            <div class="card-image-wrap">
+              <img src="assets/images/gsr-hackathon.png" alt="GSR Hackathon website preview" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">GSR Hackathon Website</h3>
+              <p class="card-desc">
+                A responsive website for the GSR Hackathon, including event information,
+                navigation, and clear call-to-action sections.
+              </p>
+              <span class="card-link">View project →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT SECTION ===================== -->
+    <section id="contact" class="contact section">
+      <div class="container">
+        <p class="section-label">— get in touch —</p>
+        <h2 class="section-title">Contact Me</h2>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+
+          <p id="form-success" class="form-success" role="status" hidden>
+            ✅ Thank you! Your message has been received.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Maha Alsubaie. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

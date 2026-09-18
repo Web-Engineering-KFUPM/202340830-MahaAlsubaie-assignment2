@@ -1,0 +1,87 @@
+# 202340830-MahaAlsubaie-assignment1
+
+**Web Engineering — Assignment 1: Personal Portfolio**
+
+**Name:** Maha Alsubaie
+**Student ID:** 202340830
+
+## Description
+
+A personal portfolio website built with pure HTML5, CSS3, and vanilla JavaScript
+(no frameworks, no libraries, no backend). The site uses a pastel "folder-card"
+visual theme — projects are presented as colorful folders you click to open,
+matching the idea of "ideas and progress tucked inside a folder."
+
+The portfolio includes a hero introduction, an About Me section, a projects
+section with two clickable project cards that link to full detail pages, and
+a contact form with client-side validation.
+
+## Features
+
+- Pastel folder-card design system (pink, green, yellow, blue, purple, orange)
+- Rounded cards, folder tabs, soft shadows, and italic section labels
+- Fully responsive layout for desktop, tablet, and mobile (CSS Grid + Flexbox)
+- Dark / light mode toggle with the choice saved in `localStorage`
+- Smooth scrolling for in-page navigation links
+- Two dedicated project detail pages with overview, key features, tools, and
+  personal contribution
+- Contact form with required-field validation and a success message on submit
+  (no backend — handled entirely in JavaScript)
+
+## Folder Structure
+
+```
+202340830-MahaAlsubaie-assignment1/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
+├── assets/
+│   └── images/
+│       ├── seraj.jpg
+│       └── gsr-hackathon.png
+├── projects/
+│   ├── seraj.html
+│   └── gsr-hackathon.html
+├── docs/
+│   ├── technical-documentation.md
+│   └── ai-usage-report.md
+├── README.md
+└── .gitignore
+```
+
+## How to Run the Project
+
+1. Download or clone the repository.
+2. Open `index.html` directly in any modern web browser (Chrome, Firefox, Edge, Safari).
+3. No build step, package installation, or server is required — everything runs
+   client-side with plain HTML, CSS, and JavaScript.
+4. Optional: use a lightweight local server (e.g. VS Code's "Live Server"
+   extension) for the smoothest experience with relative links.
+
+## Responsive Design
+
+The layout uses CSS Grid for the projects section and Flexbox for navigation,
+skills, and form layout. Media queries adjust font sizes, spacing, and
+navigation wrapping at tablet (`≤ 860px`) and mobile (`≤ 600px`) breakpoints,
+so the site remains readable and usable on any screen size.
+
+## JavaScript Features
+
+- **Theme toggle:** switches between dark and light mode and remembers the
+  choice using `localStorage`.
+- **Smooth scrolling:** in-page navigation links scroll smoothly to their
+  target section.
+- **Contact form handling:** prevents the default form submission, validates
+  required fields, and displays a success message.
+- All scripts use null checks before attaching event listeners, so the same
+  `script.js` file runs safely on both the main page and the project detail
+  pages without console errors.
+
+## AI Usage Summary
+
+AI assistance (Claude) was used to help scaffold the HTML structure, organize
+the CSS design system, and draft baseline content and documentation. All
+generated code was reviewed, tested, and adjusted to fit the assignment
+requirements. See `docs/ai-usage-report.md` for the full report.
