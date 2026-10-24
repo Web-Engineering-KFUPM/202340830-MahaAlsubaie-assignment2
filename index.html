@@ -37,7 +37,35 @@
     <!-- ===================== HERO SECTION ===================== -->
     <section id="hero" class="hero">
       <div class="container hero-content">
-     <p class="section-label reveal" style="--reveal-delay: 80ms">— welcome to my folder —</p>
+        <!-- Personalised greeting: filled in by js/script.js (time of day + saved name) -->
+        <div id="greeting" class="greeting reveal">
+          <p id="greeting-text" class="greeting-text" aria-live="polite">Welcome 👋</p>
+
+          <form id="greeting-form" class="greeting-form" novalidate>
+            <label for="visitor-name" class="greeting-label">What should I call you?</label>
+            <div class="greeting-row">
+              <input
+                type="text"
+                id="visitor-name"
+                name="visitor-name"
+                placeholder="Your name"
+                maxlength="40"
+                autocomplete="given-name"
+                dir="auto"
+                aria-describedby="name-error"
+              />
+              <button type="submit" class="btn btn-primary btn-small">Say hi</button>
+            </div>
+            <p id="name-error" class="field-error" role="alert" hidden></p>
+          </form>
+
+          <p id="greeting-note" class="greeting-note" hidden>
+            <span id="greeting-note-text"></span>
+            <button type="button" id="greeting-reset" class="link-btn">Not you?</button>
+          </p>
+        </div>
+
+        <p class="section-label reveal" style="--reveal-delay: 80ms">— welcome to my folder —</p>
         <h1 class="hero-title reveal" style="--reveal-delay: 160ms">Ideas, projects, and progress tucked inside my folder.</h1>
         <p class="hero-intro reveal" style="--reveal-delay: 240ms">
           Hi, I'm <strong>Maha Alsubaie</strong>, a Software Engineering student interested in UI/UX
@@ -59,7 +87,7 @@
     <section id="about" class="about section">
       <div class="container">
         <p class="section-label reveal">— about me —</p>
-        <h2 class="section-title reveal">A little about me</h2>
+        <h2 class="section-title reveal" style="--reveal-delay: 80ms">A little about me</h2>
 
         <p class="about-text reveal" style="--reveal-delay: 160ms">
           I'm a curious, creative problem-solver who believes the best code is written with
