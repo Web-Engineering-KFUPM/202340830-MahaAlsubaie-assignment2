@@ -1,37 +1,73 @@
-# 202340830-MahaAlsubaie-assignment1
+# 202340830-MahaAlsubaie-assignment2
 
-**Web Engineering — Assignment 1: Personal Portfolio**
+**Web Engineering — Assignment 2: Interactive Features**
 
 **Name:** Maha Alsubaie
 **Student ID:** 202340830
 
+**Live site (optional):** _add your GitHub Pages / Netlify / Vercel link here_
+
 ## Description
 
-A personal portfolio website built with pure HTML5, CSS3, and vanilla JavaScript
-(no frameworks, no libraries, no backend). The site uses a pastel "folder-card"
-visual theme — projects are presented as colorful folders you click to open,
-matching the idea of "ideas and progress tucked inside a folder."
+This is the second version of my personal portfolio. It starts from my
+Assignment 1 site (pastel "folder-card" design, built with plain HTML, CSS and
+JavaScript) and makes it more interactive: visitors are greeted by name, can
+filter and search my projects, and the page animates as they scroll.
 
-The portfolio includes a hero introduction, an About Me section, a projects
-section with two clickable project cards that link to full detail pages, and
-a contact form with client-side validation.
+There are no frameworks, libraries, build tools or backend. Everything runs in
+the browser from static files.
 
-## Features
+## What's New Since Assignment 1
 
-- Pastel folder-card design system (pink, green, yellow, blue, purple, orange)
-- Rounded cards, folder tabs, soft shadows, and italic section labels
-- Fully responsive layout for desktop, tablet, and mobile (CSS Grid + Flexbox)
-- Dark / light mode toggle with the choice saved in `localStorage`
-- Smooth scrolling for in-page navigation links
-- Two dedicated project detail pages with overview, key features, tools, and
-  personal contribution
-- Contact form with required-field validation and a success message on submit
-  (no backend — handled entirely in JavaScript)
+| Requirement | Feature |
+|---|---|
+| **Dynamic content** | **Project filter + live search.** Category buttons (All / UI/UX / Web) and a search box that filters the project cards as you type. They work together. |
+| **Dynamic content** | **Personalised greeting.** The hero greets the visitor with "Good morning / afternoon / evening" based on their local time, plus their name once they enter it. |
+| **Data handling** | **`localStorage`.** The visitor's name is validated, saved and restored on the next visit ("Not you?" forgets it). The dark/light theme is saved too. |
+| **Animation** | **Scroll animations.** Sections fade and slide in as they scroll into view, with staggered timing for skill pills and project cards. |
+| **Animation** | **Hover effects** on project cards (lift, image zoom, tab growth, tag colour, arrow nudge), skill pills, filter buttons and buttons. |
+| **Error handling and feedback** | Friendly validation messages for the name field, an **empty state** ("No projects found") with a *Clear filters* button, a live result count ("Showing 1 of 2 projects"), and animated confirmation/error messages. |
+
+Other improvements: the site respects `prefers-reduced-motion`, works without
+JavaScript (content stays visible, interactive controls are hidden), has visible
+keyboard focus styles, and announces filter results to screen readers.
+
+## Features Carried Over From Assignment 1
+
+- Pastel folder-card design system with CSS variables
+- Fully responsive layout (CSS Grid + Flexbox, tablet and mobile breakpoints)
+- Dark / light mode toggle, saved in `localStorage`
+- Smooth in-page scrolling
+- Two project detail pages (Seraj and GSR Hackathon)
+- Contact form with validation and a success message
+
+## How to Run Locally
+
+1. Clone or download this repository.
+2. Open `index.html` in any modern browser (Chrome, Edge, Firefox or Safari).
+3. That's it. There is nothing to install or build, and it works straight from
+   the file system.
+
+Optional: use a small local server such as the VS Code **Live Server**
+extension if you prefer.
+
+### Trying the new features
+
+- **Greeting:** type a name (letters, spaces, hyphens, apostrophes; Arabic names
+  work) and press *Say hi*. Reload the page: it remembers you. Press *Not you?*
+  to reset. Try submitting an empty name or `abc123` to see the error messages.
+- **Filter and search:** click *UI/UX* or *Web*, or type `figma`, `hackathon` or
+  `wordpress` in the search box. Type something like `zzz` to see the empty
+  state, then press *Clear filters*.
+- **Animations:** scroll down slowly, then hover over the cards and skill pills.
+- **Reduced motion:** turn on "Reduce motion" in your operating system settings
+  and reload. The animations switch off.
 
 ## Folder Structure
 
 ```
-202340830-MahaAlsubaie-assignment1/
+202340830-MahaAlsubaie-assignment2/
+├── README.md
 ├── index.html
 ├── css/
 │   └── styles.css
@@ -45,43 +81,22 @@ a contact form with client-side validation.
 │   ├── seraj.html
 │   └── gsr-hackathon.html
 ├── docs/
-│   ├── technical-documentation.md
-│   └── ai-usage-report.md
-├── README.md
+│   ├── ai-usage-report.md
+│   └── technical-documentation.md
 └── .gitignore
 ```
 
-## How to Run the Project
+## Technical Documentation
 
-1. Download or clone the repository.
-2. Open `index.html` directly in any modern web browser (Chrome, Firefox, Edge, Safari).
-3. No build step, package installation, or server is required — everything runs
-   client-side with plain HTML, CSS, and JavaScript.
-4. Optional: use a lightweight local server (e.g. VS Code's "Live Server"
-   extension) for the smoothest experience with relative links.
-
-## Responsive Design
-
-The layout uses CSS Grid for the projects section and Flexbox for navigation,
-skills, and form layout. Media queries adjust font sizes, spacing, and
-navigation wrapping at tablet (`≤ 860px`) and mobile (`≤ 600px`) breakpoints,
-so the site remains readable and usable on any screen size.
-
-## JavaScript Features
-
-- **Theme toggle:** switches between dark and light mode and remembers the
-  choice using `localStorage`.
-- **Smooth scrolling:** in-page navigation links scroll smoothly to their
-  target section.
-- **Contact form handling:** prevents the default form submission, validates
-  required fields, and displays a success message.
-- All scripts use null checks before attaching event listeners, so the same
-  `script.js` file runs safely on both the main page and the project detail
-  pages without console errors.
+How each feature works, the design decisions behind it, and the testing I did
+are in [`docs/technical-documentation.md`](docs/technical-documentation.md).
 
 ## AI Usage Summary
 
-AI assistance (Claude) was used to help scaffold the HTML structure, organize
-the CSS design system, and draft baseline content and documentation. All
-generated code was reviewed, tested, and adjusted to fit the assignment
-requirements. See `docs/ai-usage-report.md` for the full report.
+I used **Claude** (Anthropic, Claude Sonnet 5.5) to plan and draft the project
+filter and live search, the personalised greeting, the scroll and hover
+animations, and a first draft of the documentation. The usage log, what I
+changed and how I verified it, and my declaration are in
+[`docs/ai-usage-report.md`](docs/ai-usage-report.md). The complete conversations
+and the unedited AI output are submitted separately in the AI Evidence ZIP on
+Blackboard.
