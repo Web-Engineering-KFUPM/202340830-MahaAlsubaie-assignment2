@@ -1,5 +1,6 @@
 /* =========================================================
-   Maha Alsubaie â€” Portfolio Stylesheet
+   Maha Alsubaie” Portfolio Stylesheet
+   Maha Alsubaie — Portfolio Stylesheet (Assignment 2)
    Pastel folder-card design system
    ========================================================= */
 
@@ -530,7 +531,75 @@ body[data-theme="dark"] .form-success {
 .detail-block p {
   color: var(--text-muted);
 }
+/* ---------- Animations ---------- */
+/* Scroll reveal: the element starts invisible (only when JS is running) and
+   script.js adds .is-visible once it scrolls into view. The reveal is an
+   animation with "backwards" fill, so it leaves no transform behind afterwards
+   and the card hover lift keeps working. */
+.js .reveal:not(.is-visible) {
+  opacity: 0;
+}
 
+.reveal.is-visible {
+  animation: reveal-up 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.pop-in {
+  animation: pop-in 0.4s ease;
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(6px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
+}
+
+/* Respect visitors who ask their device for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js .reveal:not(.is-visible) {
+    opacity: 1;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 /* ---------- Responsive breakpoints ---------- */
 @media (max-width: 860px) {
   .hero-title {

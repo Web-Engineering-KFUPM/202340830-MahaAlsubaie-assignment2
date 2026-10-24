@@ -6,6 +6,11 @@
   <title>Maha Alsubaie — Portfolio</title>
   <meta name="description" content="Maha Alsubaie — Software Engineering student portfolio: projects, skills, and contact." />
   <link rel="stylesheet" href="css/styles.css" />
+
+ <!-- Marks the page as "JavaScript is running" before first paint, so the
+       scroll-reveal styles only hide content when JS is there to reveal it. -->
+  <script>document.documentElement.classList.add("js");</script>
+
 </head>
 <body>
 
@@ -32,14 +37,14 @@
     <!-- ===================== HERO SECTION ===================== -->
     <section id="hero" class="hero">
       <div class="container hero-content">
-        <p class="section-label">— welcome to my folder —</p>
-        <h1 class="hero-title">Ideas, projects, and progress tucked inside my folder.</h1>
-        <p class="hero-intro">
+     <p class="section-label reveal" style="--reveal-delay: 80ms">— welcome to my folder —</p>
+        <h1 class="hero-title reveal" style="--reveal-delay: 160ms">Ideas, projects, and progress tucked inside my folder.</h1>
+        <p class="hero-intro reveal" style="--reveal-delay: 240ms">
           Hi, I'm <strong>Maha Alsubaie</strong>, a Software Engineering student interested in UI/UX
           and creative digital experiences. 
           Here are a few things I’ve been making, learning, and improving.
         </p>
-        <a href="#projects" class="btn btn-primary">Explore My Work</a>
+                <a href="#projects" class="btn btn-primary reveal" style="--reveal-delay: 320ms">Explore My Work</a>
       </div>
 
       <!-- decorative folder tabs -->
@@ -53,10 +58,10 @@
     <!-- ===================== ABOUT SECTION ===================== -->
     <section id="about" class="about section">
       <div class="container">
-        <p class="section-label">— about me —</p>
-        <h2 class="section-title">A little about me</h2>
+        <p class="section-label reveal">— about me —</p>
+        <h2 class="section-title reveal">A little about me</h2>
 
-        <p class="about-text">
+        <p class="about-text reveal" style="--reveal-delay: 160ms">
           I'm a curious, creative problem-solver who believes the best code is written with
           purpose, not just to make things work. I learn best by doing — building projects,
           breaking them, and figuring out how to make them better. Along the way, I've come
@@ -64,17 +69,17 @@
           as a chance to keep growing.
         </p>
 
-        <div class="skills-card">
+        <div class="skills-card reveal" style="--reveal-delay: 240ms">
           <p class="section-label small">— skills —</p>
-          <ul class="skills-list">
-            <li class="skill-pill pill-pink">HTML and CSS</li>
-            <li class="skill-pill pill-green">JavaScript</li>
-            <li class="skill-pill pill-yellow">Responsive Design</li>
-            <li class="skill-pill pill-blue">Object-Oriented Programming</li>
-            <li class="skill-pill pill-pink">Figma</li>
-            <li class="skill-pill pill-green">WordPress</li>
-            <li class="skill-pill pill-yellow">SoftWare Design</li>
-          </ul>
+        <ul class="skills-list" data-stagger>
+            <li class="skill-pill pill-pink reveal">HTML and CSS</li>
+            <li class="skill-pill pill-green reveal">JavaScript</li>
+            <li class="skill-pill pill-yellow reveal">Responsive Design</li>
+            <li class="skill-pill pill-blue reveal">Object-Oriented Programming</li>
+            <li class="skill-pill pill-pink reveal">Figma</li>
+            <li class="skill-pill pill-green reveal">WordPress</li>
+            <li class="skill-pill pill-yellow reveal">Software Design</li>
+            </ul>
         </div>
       </div>
     </section>
@@ -82,13 +87,13 @@
     <!-- ===================== PROJECTS SECTION ===================== -->
     <section id="projects" class="projects section">
       <div class="container">
-        <p class="section-label">— my work —</p>
-        <h2 class="section-title">Projects</h2>
+        <p class="section-label reveal">— my work —</p>
+        <h2 class="section-title reveal" style="--reveal-delay: 80ms">Projects</h2>
 
         <div class="projects-grid">
 
           <!-- Project 1: Seraj -->
-          <a class="folder-card card-purple" href="projects/seraj.html">
+       <a class="folder-card card-purple reveal" href="projects/seraj.html" data-category="uiux">
             <span class="folder-tab"></span>
             <div class="card-image-wrap">
               <img src="assets/images/seraj.jpg" alt="Seraj project preview" loading="lazy" />
@@ -104,7 +109,7 @@
           </a>
 
           <!-- Project 2: GSR Hackathon -->
-          <a class="folder-card card-orange" href="projects/gsr-hackathon.html">
+             <a class="folder-card card-orange reveal" href="projects/gsr-hackathon.html" data-category="web">
             <span class="folder-tab"></span>
             <div class="card-image-wrap">
               <img src="assets/images/gsr-hackathon.png" alt="GSR Hackathon website preview" loading="lazy" />
@@ -126,10 +131,10 @@
     <!-- ===================== CONTACT SECTION ===================== -->
     <section id="contact" class="contact section">
       <div class="container">
-        <p class="section-label">— get in touch —</p>
-        <h2 class="section-title">Contact Me</h2>
+ <p class="section-label reveal">— get in touch —</p>
+        <h2 class="section-title reveal" style="--reveal-delay: 80ms">Contact Me</h2>
 
-        <form id="contact-form" class="contact-form" novalidate>
+     <form id="contact-form" class="contact-form reveal" style="--reveal-delay: 160ms" novalidate>
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your full name" required />
