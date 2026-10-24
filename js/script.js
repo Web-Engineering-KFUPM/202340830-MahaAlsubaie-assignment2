@@ -280,6 +280,151 @@
   }
 
   /* ---------------------------------------------------------
+     5. Project filter + live search
+        Category buttons and the search box work together:
+        a card is shown only if it matches the active category
+        AND contains every word typed in the search box.
+     --------------------------------------------------------- */
+  function initProjectFilter() {
+    const grid = document.getElementById("projects-grid");
+    const searchInput = document.getElementById("project-search");
+    const filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
+    const resultsCount = document.getElementById("results-count");
+    const emptyState = document.getElementById("no-results");
+    const emptyDetail = document.getElementById("no-results-detail");
+    const clearBtn = document.getElementById("clear-filters");
+
+    if (!grid || !searchInput || !resultsCount || !emptyState || !emptyDetail || !clearBtn || !filterButtons.length) {
+      return;
+    }
+
+    const cards = Array.from(grid.querySelectorAll(".folder-card"));
+    const state = { category: "all", query: "" };
+
+    // Build each card's searchable text once: title + description + tags.
+    const searchText = new Map(
+      cards.map((card) => {
+        const parts = [
+          card.querySelector(".card-title"),
+          card.querySelector(".card-desc"),
+          ...card.querySelectorAll(".card-tags li"),
+        ];
+        const text = parts
+          .filter(Boolean)
+          .map((el) => el.textContent)
+          .join(" ")
+          .replace(/\s+/g, " ")
+          .toLowerCase();
+        return [card, text];
+      })
+    );
+
+    function matches(card) {
+      const categories = (card.dataset.category || "").split(" ");
+      const inCategory = state.category === "all" || categories.includes(state.category);
+
+      const terms = state.query.toLowerCase().split(/\s+/).filter(Boolean);
+      const text = searchText.get(card);
+
+      return inCategory && terms.every((term) => text.includes(term));
+    }
+
+    // Explains the empty state in a way that tells the user what to do next.
+    function describeEmpty() {
+      const query = state.query.trim();
+      const activeBtn = filterButtons.find((btn) => btn.classList.contains("is-active"));
+      const label = activeBtn ? activeBtn.textContent : "";
+      const hasCategory = state.category !== "all";
+
+      if (query && hasCategory) {
+        return `Nothing in ${label} matches “${query}”. Try a different keyword, or clear the filters.`;
+      }
+      if (query) {
+        return `Nothing matches “${query}”. Check the spelling or try a different keyword.`;
+      }
+      return `There are no ${label} projects yet. Pick another category to keep exploring.`;
+    }
+
+    function update() {
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const show = matches(card);
+        card.hidden = !show; // a card coming back from display:none replays its entrance animation
+        if (show) visible += 1;
+      });
+
+      const noun = cards.length === 1 ? "project" : "projects";
+      resultsCount.textContent = `Showing ${visible} of ${cards.length} ${noun}`;
+
+      emptyState.hidden = visible > 0;
+      if (visible === 0) emptyDetail.textContent = describeEmpty();
+    }
+
+    function setCategory(category) {
+      state.category = category;
+      filterButtons.forEach((btn) => {
+        const isActive = (btn.dataset.filter || "all") === category;
+        btn.classList.toggle("is-active", isActive);
+        btn.setAttribute("aria-pressed", String(isActive));
+      });
+    }
+
+    searchInput.addEventListener("input", () => {
+      state.query = searchInput.value;
+      update();
+    });
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        setCategory(btn.dataset.filter || "all");
+        update();
+      });
+    });
+
+    clearBtn.addEventListener("click", () => {
+      state.query = "";
+      searchInput.value = "";
+      setCategory("all");
+      update();
+      searchInput.focus();
+    });
+
+    update();
+  }
+
+  /* ---------------------------------------------------------
+     6. Contact form (no backend, validation + confirmation)
+     --------------------------------------------------------- */
+  function initContactForm() {
+    const form = document.getElementById("contact-form");
+    const success = document.getElementById("form-success");
+    if (!form) return;
+
+    let hideTimer = null;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      form.reset();
+      if (!success) return;
+
+      success.hidden = false;
+      replayAnimation(success, "pop-in");
+
+      clearTimeout(hideTimer); // avoid an older timer hiding a newer message
+      hideTimer = setTimeout(() => {
+        success.hidden = true;
+      }, 5000);
+    });
+  }
+
+  /* ---------------------------------------------------------
      Start everything
      --------------------------------------------------------- */
   initScrollReveal();

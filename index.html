@@ -10,7 +10,6 @@
  <!-- Marks the page as "JavaScript is running" before first paint, so the
        scroll-reveal styles only hide content when JS is there to reveal it. -->
   <script>document.documentElement.classList.add("js");</script>
-
 </head>
 <body>
 
@@ -118,7 +117,32 @@
         <p class="section-label reveal">— my work —</p>
         <h2 class="section-title reveal" style="--reveal-delay: 80ms">Projects</h2>
 
-        <div class="projects-grid">
+       
+
+        <!-- Filter + live search controls (hidden when JavaScript is off, see CSS) -->
+        <div class="projects-controls reveal" style="--reveal-delay: 160ms">
+          <div class="search-box" role="search">
+            <label for="project-search" class="sr-only">Search projects</label>
+            <input
+              type="search"
+              id="project-search"
+              class="search-input"
+              placeholder="Search by name or tag…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </div>
+
+          <div class="filter-group" role="group" aria-label="Filter projects by category">
+            <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-btn" data-filter="uiux" aria-pressed="false">UI/UX</button>
+            <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
+          </div>
+
+          <p id="results-count" class="results-count" role="status" aria-live="polite">Showing 2 of 2 projects</p>
+        </div>
+
+        <div id="projects-grid" class="projects-grid" data-stagger>
 
           <!-- Project 1: Seraj -->
        <a class="folder-card card-purple reveal" href="projects/seraj.html" data-category="uiux">
@@ -132,7 +156,13 @@
                 An augmented reality cultural exploration platform that helps users
                 discover Saudi heritage through interactive experiences.
               </p>
-              <span class="card-link">View project →</span>
+              <ul class="card-tags" aria-label="Project tags">
+                <li>UI/UX</li>
+                <li>AR</li>
+                <li>Figma</li>
+                <li>Heritage</li>
+              </ul>
+              <span class="card-link">View project <span class="arrow" aria-hidden="true">→</span></span>
             </div>
           </a>
 
@@ -148,11 +178,24 @@
                 A responsive website for the GSR Hackathon, including event information,
                 navigation, and clear call-to-action sections.
               </p>
-              <span class="card-link">View project →</span>
+                    <ul class="card-tags" aria-label="Project tags">
+                <li>Web</li>
+                <li>HTML &amp; CSS</li>
+                <li>Responsive</li>
+                <li>WordPress</li>
+              </ul>
+              <span class="card-link">View project <span class="arrow" aria-hidden="true">→</span></span>
             </div>
           </a>
 
         </div>
+
+        <!-- Empty state: shown by js/script.js when no project matches -->
+        <div id="no-results" class="empty-state" hidden>
+          <p class="empty-title">No projects found</p>
+          <p id="no-results-detail" class="empty-text">Try a different keyword, or clear the filters to see everything.</p>
+          <button type="button" id="clear-filters" class="btn btn-primary btn-small">Clear filters</button>
+       </div>
       </div>
     </section>
 
