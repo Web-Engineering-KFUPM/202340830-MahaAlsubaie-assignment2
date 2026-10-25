@@ -35,6 +35,7 @@ or fix something.**
 
 C02 | I ask Clude to explain which parts have been changes or modifaide to implemnt it by my self and see the affect of erery change 
 
+C03 | ChatGPT | 2026-10-25 | Suggested centering the About section and changing the skill-pill hover effect to enlarge slightly. | css/styles.css, index.html
 ## 3. How AI Supported the Work
 
 - **Feature design:** the AI proposed how the filter, search and greeting should
